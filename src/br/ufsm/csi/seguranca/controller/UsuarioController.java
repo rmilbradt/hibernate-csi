@@ -12,6 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,9 +33,32 @@ public class UsuarioController {
 
     @Transactional
     @RequestMapping("cria-usuario.html")
-    public String criaUsuario(Usuario usuario) {
+    public String criaUsuario(Usuario usuario, String senhaStr) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        usuario.setSenha(md.digest(senhaStr.getBytes("ISO-8859-1")));
         hibernateDAO.criaObjeto(usuario);
         return "usuario";
+    }
+
+    @Transactional
+    @RequestMapping("login.html")
+    public String login(String login, String senha) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("login", login);
+//        MessageDigest md = MessageDigest.getInstance("SHA-256");
+//        map.put("senha", md.digest(senha.getBytes("ISO-8859-1")));
+//        Collection usuarios = hibernateDAO.listaObjetosEquals(Usuario.class, map);
+//        if (usuarios == null || usuarios.isEmpty()) {
+//            return "acesso-negado";
+//        } else {
+//            return "ok";
+//        }
+        Usuario usuario = hibernateDAO.findUsuarioHQL(login, senha);
+        if (usuario == null) {
+            return "acesso-negado";
+        } else {
+            return "ok";
+        }
     }
 
     @Transactional

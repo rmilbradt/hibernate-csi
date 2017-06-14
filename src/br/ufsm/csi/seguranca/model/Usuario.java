@@ -13,7 +13,7 @@ public class Usuario {
     private Long id;
     private String nome;
     private String login;
-    private String senha;
+    private byte[] senha;
     private Collection<Log> logs;
 
     @OneToMany(mappedBy = "usuario")
@@ -56,11 +56,11 @@ public class Usuario {
     }
 
     @Column(name = "SENHA", length = 50)
-    public String getSenha() {
+    public byte[] getSenha() {
         return senha;
     }
 
-    public void setSenha(String senha) {
+    public void setSenha(byte[] senha) {
         this.senha = senha;
     }
 }
