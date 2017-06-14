@@ -87,7 +87,7 @@ public class UsuarioController {
         if (login != null && !login.isEmpty()) {
             m.put("login", login);
         }
-        model.addAttribute("usuarios", hibernateDAO.listaObjetos(Usuario.class, m));
+        model.addAttribute("usuarios", hibernateDAO.listaObjetos(Usuario.class, m, null, null, false));
         return "lista-usuarios";
     }
 
