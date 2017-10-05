@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by cpol on 29/05/2017.
+ * Created by cpol on 29/05/2017.@localhost
  */
 @Entity
 @Table(name = "USUARIO")

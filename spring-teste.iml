@@ -40,5 +40,6 @@
     <orderEntry type="library" name="org.postgresql:postgresql:9.4.1212.jre7" level="project" />
     <orderEntry type="library" name="hsqldb" level="project" />
     <orderEntry type="library" name="javax.servlet:javax.servlet-api:3.0.1" level="project" />
+    <orderEntry type="library" name="org.owasp.encoder:encoder-esapi:1.2.1" level="project" />
   </component>
 </module>
