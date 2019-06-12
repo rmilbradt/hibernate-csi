@@ -16,6 +16,9 @@
           <element id="library" level="project" name="org.postgresql:postgresql:9.4.1212.jre7" />
           <element id="library" level="project" name="hsqldb" />
           <element id="library" level="project" name="org.owasp.encoder:encoder-esapi:1.2.1" />
+          <element id="library" level="project" name="javax.xml.bind:jaxb-api:2.3.1" />
+          <element id="library" level="project" name="com.sun.xml.bind:jaxb-core:2.3.0" />
+          <element id="library" level="project" name="com.sun.xml.bind:jaxb-impl:2.3.2" />
         </element>
       </element>
     </root>
